@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Page 3</h2>
+
+    <div style="width: 50%; border-width: 2px; border-style: solid;">
+        <p id="displayArea">
+
+        </p>
+    </div>
+
+    <label for="numBase">Enter your base:</label>
+    <input type="number" id="numBase" size="5">
+    <br>
+    <label for="numExponent">Enter your exponent:</label>
+    <input type="number" id="numExponent" size="5">
+
+    <button onclick="buttonCalculate();">Calculate</button>
+
+    <script>
+        const display = document.getElementById("displayArea");
+
+        const numBase = document.getElementById("numBase");
+        const numExponent = document.getElementById("numExponent");
+        
+        function buttonCalculate() {
+            let base = parseFloat(numBase.value);
+            let exponent = parseInt(numExponent.value);
+            display.innerHTML = Math.pow(base, exponent).toFixed(2);
+        }
+    </script>
+</body>
+</html>

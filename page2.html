@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Page 2</h2>
+
+    <div style="width: 50%; border-width: 2px; border-style: solid;">
+        <p id="displayArea">
+
+        </p>
+    </div>
+
+    <script>
+        const display = document.getElementById("displayArea");
+        
+        const numbers = [];
+        PopulateArray(numbers);
+        DisplayArray(numbers);
+
+        function PopulateArray(numbers) {
+            for (let i = 0; i < 12; i++) {
+                numbers[i] = Math.round(Math.random() * (99 - -99) + -99 * 100) / 100;
+            }
+            return numbers;
+        }
+
+        function DisplayArray(array) {
+            display.innerHTML = array.join(", ");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Page 4</h2>
+
+    <div style="width: 50%; border-width: 2px; border-style: solid;">
+        <p id="displayArea">
+
+        </p>
+    </div>
+    <label for="input1">String</label>
+    <input type="text" id="input1" size="5">
+    <br>
+    <label for="input2">String/Index</label>
+    <input type="text" id="input2" size="5">
+    <br>
+    <button onclick="button1();">push, unshift</button>
+    <button onclick="button2();">Calculate</button>
+    <button onclick="button3();">Calculate</button>
+    
+
+    <script>
+        const display = document.getElementById("displayArea");
+
+        const people = ["Derek", "Hadi", "Samson", "Brandon", "Andrew"];
+
+        const input1 = document.getElementById("input1");
+        const input2 = document.getElementById("input2");
+
+        DisplayArray(people);
+
+        function button1() {
+            if (input1.value) {
+                people.unshift(input1.value);
+            }
+            if (input2.value) {
+                people.push(input2.value);
+            }
+            
+            DisplayArray(people);
+        }
+
+        function button2() {
+            let index = parseInt(input2.value);
+            if (isNaN(index)) {
+                display.innerHTML = "Please enter an index";
+            }
+            else if (input1.value) {
+                people.splice(index, 0, input1.value);
+                DisplayArray(people);
+            }
+            else {
+                display.innerHTML = "Please enter a string";
+            }
+        }
+
+        function button3() {
+            let index = people.indexOf(input1.value);
+            if (index > -1) {
+                display.innerHTML = `Index of ${input1.value} is: ${index}`;
+            } 
+            else {
+                display.innerHTML = `Index of ${input1.value} is not found`;
+            }
+        }
+
+        function DisplayArray(array) {
+            display.innerHTML = "";
+            for (let i = 0; i < array.length; i++) {
+                display.innerHTML += `Index: ${i}, Value: ${array[i]}<br>`;
+            }
+        }
+    </script>
+</body>
+</html>
